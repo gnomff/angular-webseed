@@ -71,16 +71,6 @@
 					    </configuration>
 					</execution>
 
-<!--                     <execution> -->
-<!--                         <id>javascript tests</id> -->
-<!--                         <goals> -->
-<!--                             <goal>karma</goal> -->
-<!--                         </goals> -->
-<!--                         <configuration> -->
-<!--                             <karmaConfPath>src/test/javascript/karma.conf.ci.js</karmaConfPath> -->
-<!--                         </configuration> -->
-<!--                     </execution> -->
-
                 </executions>
 		    </plugin>
   	</plugins>
