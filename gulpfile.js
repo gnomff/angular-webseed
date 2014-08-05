@@ -10,6 +10,16 @@ var sass = require('gulp-sass');
 var fileinclude = require('gulp-file-include');
 var preprocess = require('gulp-preprocess');
 
+var env = 'dev';
+
+gulp.task('setdev', function(){
+	env = 'dev';
+});
+
+gulp.task('setprod', function(){
+	env = 'prod';
+});
+
 var paths = {
 	res: 'src/main/resources/',
 	webapp: 'src/main/webapp/', 
@@ -39,7 +49,7 @@ gulp.task('webxml', function(){
 });
 
 gulp.task('bower-files', function() {
-	return gulp.src(mainBowerFiles(), {base: 'bower_components'}).pipe(gulp.dest(paths.extlibs));
+	return gulp.src(mainBowerFiles({env:env}), {base: 'bower_components'}).pipe(gulp.dest(paths.extlibs));
 });
 
 gulp.task('clean', function() {
@@ -48,7 +58,7 @@ gulp.task('clean', function() {
 
 gulp.task('html', function(){
 	return gulp.src(paths.html)
-		.pipe(preprocess())
+		.pipe(preprocess({context: { NODE_ENV: env}}))
 	    .pipe(fileinclude({
 	      prefix: '@@',
 	      basepath: '@file'
@@ -56,19 +66,29 @@ gulp.task('html', function(){
 	    .pipe(gulp.dest(paths.webapp));
 });
 
-gulp.task('scripts', function() {
+gulp.task('scripts-dev', function() {
 	return gulp.src(paths.scripts)
 	    .pipe(concat('angular-webseed.js'))
-	    .pipe(gulp.dest(paths.webapp))
+	    .pipe(gulp.dest(paths.webapp));
+});
+
+gulp.task('scripts-prod', function() {
+	return gulp.src(paths.scripts)
+	    .pipe(concat('angular-webseed.js'))
 	    .pipe(rename('angular-webseed.min.js'))
 	    .pipe(uglify())
 	    .pipe(gulp.dest(paths.webapp));
 });
 
-gulp.task('build', gulpsync.sync(['clean',['bower-files', 'webxml', 'html', 'scripts']]));
-
 gulp.task('watch', function() {
-  gulp.watch(paths.scripts, ['scripts']);
-  gulp.watch(paths.html, ['html']);
-  gulp.watch(paths.sass, ['sass']);
-});
+	  gulp.watch(paths.scripts, ['scripts-dev']);
+	  gulp.watch(paths.html, ['html']);
+	  gulp.watch(paths.sass, ['sass']);
+	});
+
+gulp.task('build-prod', gulpsync.sync([['clean', 'setprod'],['bower-files', 'webxml', 'html', 'scripts-prod']], 'prod'));
+gulp.task('build-dev', gulpsync.sync([['clean', 'setdev'],['bower-files', 'webxml', 'html', 'scripts-dev']], 'dev'));
+
+
+
+

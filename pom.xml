@@ -67,7 +67,7 @@
 					    <configuration>
 					        <!-- optional: if not specified, it will run gulp's default
 					        task (and you can remove this whole <configuration> section.) -->
-					        <arguments>build</arguments>
+					        <arguments>${gulp.build}</arguments>
 					    </configuration>
 					</execution>
 
@@ -92,4 +92,20 @@
     
   </dependencies>
  
+ 
+ <profiles>
+  <profile>
+    <id>dev</id>
+    <properties>
+    	<gulp.build>build-dev</gulp.build>
+    </properties>
+    
+  </profile>
+  <profile>
+  	<id>prod</id>
+  	<properties>
+  		<gulp.build>build-prod</gulp.build>
+  	</properties>
+  </profile>
+  </profiles>
 </project>
