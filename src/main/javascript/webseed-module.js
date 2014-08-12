@@ -1,6 +1,6 @@
-var seed = angular.module('seedApp',['ui.bootstrap', 'ui.select2', 'nameService']);
+var seed = angular.module('seedApp',['ui.bootstrap', 'ui.select2']);
   
-seed.controller('seedController', ['$scope', 'NameService', function($scope, NameService) {
+seed.controller('seedController', ['$scope', function($scope) {
 	
 	$scope.names = [{"id":1,"name":"Axel"},{"id":2,"name":"Mr. Foo"},{"id":3,"name":"Ms. Bar"}];
 	
@@ -10,7 +10,6 @@ seed.controller('seedController', ['$scope', 'NameService', function($scope, Nam
 	
 	$scope.selectName = function(){
         return {
-            multiple: false,
             simple_tags: false,
             placeholder: "Select a Name...",
             allowClear: true,
