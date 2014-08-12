@@ -74,8 +74,7 @@ gulp.task('scripts-dev', function() {
 
 gulp.task('scripts-prod', function() {
 	return gulp.src(paths.scripts)
-	    .pipe(concat('angular-webseed.js'))
-	    .pipe(rename('angular-webseed.min.js'))
+	    .pipe(concat('angular-webseed.min.js'))
 	    .pipe(uglify())
 	    .pipe(gulp.dest(paths.webapp));
 });

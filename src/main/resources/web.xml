@@ -6,13 +6,13 @@
   <display-name>Archetype Created Web Application</display-name>
   
     <servlet>
-        <servlet-name>webseed</servlet-name>
+        <servlet-name>angular-webseed</servlet-name>
         <servlet-class>org.apache.catalina.servlets.DefaultServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet> 
   
     <servlet-mapping> 
-        <servlet-name>webseed</servlet-name> 
-        <url-pattern>/webseed</url-pattern> 
+        <servlet-name>angular-webseed</servlet-name> 
+        <url-pattern>/angular-webseed</url-pattern> 
     </servlet-mapping> 
 </web-app>

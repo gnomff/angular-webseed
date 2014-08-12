@@ -15,8 +15,12 @@
    
 </head>
 <body ng-controller="seedController">
-<input type="text" ng-model="name"></input>
-<h2>Hello {{name}}! I like ponies too!</h2>
-
+	<div class="form-group">
+	  <label for="names" class="col-xs-2 control-label">Names</label>
+    <input id="names" type="hidden" class="col-xs-10"
+           ui-select2="selectName()"
+           ng-model="name">                                                                   
+    </input>
+	</div>
 </body>
 </html>

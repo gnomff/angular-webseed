@@ -1,8 +1,7 @@
 {
-  "name": "webseed",
-  "version": "0.0.0",
-  "authors": [
-  ],
+  "name": "angular-webseed",
+  "version": "1.0.0",
+  "authors": ["Tim Ecklund"],
   "main": "",
   "license": "",
   "private": true,
@@ -14,91 +13,105 @@
     "tests"
   ],
   "overrides": {
-    "angular":{
-    	"main" : {
-    		"dev" : "angular.js",
-    		"prod": [
-    			"angular.min.js", "angular.min.js.map"
-    		]
-    	}
+    "angular": {
+      "main": {
+        "dev": "angular.js",
+        "prod": [
+          "angular.min.js",
+          "angular.min.js.map"
+        ]
+      }
+    },
+    "angular-resource": {
+      "main": {
+        "dev": "angular-resource.js",
+        "prod": [
+          "angular-resource.min.js",
+          "angular-resource.min.js.map"
+        ]
+      }
+    },
+    "angular-loader": {
+      "main": {
+        "dev": "angular-loader.js",
+        "prod": [
+          "angular-loader.min.js",
+          "angular-loader.min.js.map"
+        ]
+      }
+    },
+    "jquery": {
+      "main": {
+        "dev": "dist/jquery.js",
+        "prod": [
+          "dist/jquery.min.js",
+          "dist/jquery.min.map"
+        ]
+      }
+    },
+    "angular-bootstrap": {
+      "main": {
+        "dev": "ui-bootstrap-tpls.js",
+        "prod": [
+          "ui-bootstrap-tpls.min.js"
+        ]
+      }
+    },
+    "select2": {
+      "main": {
+        "dev": [
+          "select2.js",
+          "select2.css",
+          "select2-bootstrap.css",
+          "select2.png",
+          "select2x2.png",
+          "select2-spinner.gif"
+        ],
+        "prod": [
+          "select2.min.js",
+          "select2.css",
+          "select2-bootstrap.css",
+          "select2.png",
+          "select2x2.png",
+          "select2-spinner.gif"
+        ]
+      }
     },
     "bootstrap": {
       "main": {
-      		"dev" : [
-      			"./dist/js/bootstrap.js",
-      			"./dist/css/bootstrap.css",
-      			"./dist/css/bootstrap-theme.css",
-      			"./dist/fonts/glyphicons-halflings-regular.eot",
-		        "./dist/fonts/glyphicons-halflings-regular.svg",
-		        "./dist/fonts/glyphicons-halflings-regular.ttf",
-		        "./dist/fonts/glyphicons-halflings-regular.woff"
-      		],
-      		"prod" : [
-      			"./dist/js/bootstrap.min.js",
-      			"./dist/css/bootstrap.min.css",
-      			"./dist/css/bootstrap.css.map",
-      			"./dist/css/bootstrap-theme.min.css",
-      			"./dist/css/bootstrap-theme.css.map",
-      			"./dist/fonts/glyphicons-halflings-regular.eot",
-		        "./dist/fonts/glyphicons-halflings-regular.svg",
-		        "./dist/fonts/glyphicons-halflings-regular.ttf",
-		        "./dist/fonts/glyphicons-halflings-regular.woff"
-      		]
+        "dev": [
+          "./dist/js/bootstrap.js",
+          "./dist/css/bootstrap.css",
+          "./dist/css/bootstrap.css.map",
+          "./dist/css/bootstrap-theme.css",
+          "./dist/css/bootstrap-theme.css.map",
+          "./dist/fonts/glyphicons-halflings-regular.eot",
+          "./dist/fonts/glyphicons-halflings-regular.svg",
+          "./dist/fonts/glyphicons-halflings-regular.ttf",
+          "./dist/fonts/glyphicons-halflings-regular.woff"
+        ],
+        "prod": [
+          "./dist/js/bootstrap.min.js",
+          "./dist/css/bootstrap.min.css",
+          "./dist/css/bootstrap.css.map",
+          "./dist/css/bootstrap-theme.min.css",
+          "./dist/css/bootstrap-theme.css.map",
+          "./dist/fonts/glyphicons-halflings-regular.eot",
+          "./dist/fonts/glyphicons-halflings-regular.svg",
+          "./dist/fonts/glyphicons-halflings-regular.ttf",
+          "./dist/fonts/glyphicons-halflings-regular.woff"
+        ]
       }
-    },
-    "jqueryui": {
-      "main": [
-        "ui/jquery-ui.js",
-        "themes/smoothness/jquery.ui.theme.css",
-        "themes/smoothness/jquery-ui.css",
-        "themes/smoothness/images/animated-overlay.gif",
-        "themes/smoothness/images/ui-bg_flat_0_aaaaaa_40x100.png",
-        "themes/smoothness/images/ui-bg_flat_75_ffffff_40x100.png",
-        "themes/smoothness/images/ui-bg_glass_55_fbf9ee_1x400.png",
-        "themes/smoothness/images/ui-bg_glass_65_ffffff_1x400.png",
-        "themes/smoothness/images/ui-bg_glass_75_dadada_1x400.png",
-        "themes/smoothness/images/ui-bg_glass_75_e6e6e6_1x400.png",
-        "themes/smoothness/images/ui-bg_glass_95_fef1ec_1x400.png",
-        "themes/smoothness/images/ui-bg_highlight-soft_75_cccccc_1x100.png",
-        "themes/smoothness/images/ui-icons_2e83ff_256x240.png",
-        "themes/smoothness/images/ui-icons_222222_256x240.png",
-        "themes/smoothness/images/ui-icons_454545_256x240.png",
-        "themes/smoothness/images/ui-icons_888888_256x240.png",
-        "themes/smoothness/images/ui-icons_cd0a0a_256x240.png"
-      ]
-    },
-    "ng-file-upload": {
-      "main": [
-        "angular-file-upload.js",
-        "angular-file-upload-html5-shim.js",
-        "angular-file-upload-shim.js",
-        "FileAPI.flash.swf",
-        "FileAPI.min.js"
-      ]
-    },
-    "ng-grid": {
-      "main": [
-        "ng-grid.css",
-        "build/ng-grid.js",
-        "plugins/ng-grid-layout.js"
-      ]
     }
   },
   "dependencies": {
     "angular-bootstrap": "~0.11.0",
     "angular-ui-select2": "~0.0.5",
     "angular": "1.2.18",
+    "angular-resource": "1.2.18",
+    "angular-loader": "1.2.18",
     "bootstrap": "~3.1.1",
     "jquery": "~1.11.1",
-    "jqueryui": "1.10.4",
-    "datejs": "~1.0.0-rc1",
-    "ng-file-upload": "~1.4.0",
-    "ng-grid": "2.0.7",
-    "select2": "~3.4.8",
-    "underscore": "~1.6.0",
-    "select2-bootstrap-css": "~1.3.1",
-    "angular-resource": "1.2.18",
-    "angular-loader": "1.2.18"
+    "select2": "~3.4.8"
   }
 }
-
