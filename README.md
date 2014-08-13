@@ -6,6 +6,7 @@ A base project for building angularjs apps. Starts you out with bootstrap, angul
 Usage:
 
 npm install
+
 bower install
 
 mvn -Pdev tomcat7:run
