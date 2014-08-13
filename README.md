@@ -5,6 +5,8 @@ A base project for building angularjs apps. Starts you out with bootstrap, angul
 
 Usage:
 
+npm install
+
 mvn -Pdev tomcat7:run
 
 or
