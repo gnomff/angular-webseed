@@ -1,26 +1,40 @@
 <!DOCTYPE html>
 <html ng-app="seedApp">
-<head >
+<head>
 
-@@include('../includes/common-includes.html') 
+@@include('../includes/common-includes.html')
 
 <!-- @if NODE_ENV='dev' -->
 @@include('../includes/dev-includes.html')
-<!-- @endif -->	
+<!-- @endif -->
 
 <!-- @if NODE_ENV='prod' -->
 @@include('../includes/prod-includes.html')
-<!-- @endif -->	
-    
-   
+<!-- @endif -->
+
+
+  <style>
+    body {
+      padding: 15px;
+    }
+
+    .select2 > .select2-choice.ui-select-match {
+      /* Because of the inclusion of Bootstrap */
+      height: 29px;
+    }
+
+    .selectize-control > .selectize-dropdown {
+      top: 36px;
+    }
+  </style>
+
 </head>
 <body ng-controller="seedController">
-	<div class="form-group">
-	  <label for="names" class="col-xs-2 control-label">Names</label>
-    <input id="names" type="hidden" class="col-xs-10"
-           ui-select2="selectName()"
-           ng-model="name">                                                                   
-    </input>
-	</div>
+	<ui-select ng-model="person.selected" theme="bootstrap" reset-search-input="false" style="width: 300px;"> 
+			<ui-select-match placeholder="Enter a name...">{{$select.selected.name}}</ui-select-match>
+			<ui-select-choices repeat="person in people track by $index" refresh="refreshNames($select.search)" refresh-delay="0">
+				<div >{{person.name}}</div>
+			</ui-select-choices> 
+		</ui-select>
 </body>
 </html>

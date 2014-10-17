@@ -1,27 +1,26 @@
-var seed = angular.module('seedApp',['ui.bootstrap', 'ui.select2']);
-  
-seed.controller('seedController', ['$scope', function($scope) {
-	
-	$scope.names = [{"id":1,"name":"Axel"},{"id":2,"name":"Mr. Foo"},{"id":3,"name":"Ms. Bar"}];
-	
-	$scope.contains = function(orig, find){
-    	return orig.toUpperCase().indexOf(find.toUpperCase()) > -1;
-    };
-	
-	$scope.selectName = function(){
-        return {
-            simple_tags: false,
-            placeholder: "Select a Name...",
-            allowClear: true,
-            query: function (query) {
-            	query.callback({
-                    results: $scope.names.filter(
-                    		function(n){return $scope.contains(n.name, query.term);})
-                    		.map(function(n){return {id:n.id, text:n.name};})
-                });
-            	
-                
-            }
-        };
-    };
-}]);
+var seed = angular.module('seedApp', [ 'ngSanitize', 'ui.select' ]);
+
+seed.controller('seedController', [ '$scope', function($scope) {
+
+	$scope.people = [ {
+		"id" : 1,
+		"name" : "Axel"
+	}, {
+		"id" : 2,
+		"name" : "Mr. Foo"
+	}, {
+		"id" : 3,
+		"name" : "Ms. Bar"
+	} ];
+	$scope.person = {};
+	$scope.refreshNames = function(search) {
+		$scope.people = $scope.people.filter(function(p) {
+							return $scope.contains(p.name, search);
+						});
+	}
+
+	$scope.contains = function(orig, find) {
+		return orig.toUpperCase().indexOf(find.toUpperCase()) > -1;
+	};
+
+} ]);
